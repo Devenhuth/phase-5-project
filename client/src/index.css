@@ -5,9 +5,238 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url("https://www.psychologicalscience.org/redesign/wp-content/uploads/2022/01/How-Haunted-Houses-Measure-Fear-Web-1600x842.jpg"); */
+  background-size: cover;
+  background-color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.story {
+  text-align: center;
+  font-size: 70px;
+}
+
+.button {
+  color: white;
+  background-color: rgb(71, 3, 8);
+  border: none;
+  position: absolute;
+  top: 550px; left: 900px; 
+  font-size: 40px;
+  border-radius: 20%;
+  padding: 32px 16px;
+}
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 250, 250, 0.164), 0 17px 50px 0 rgba(255, 253, 253, 0.137);
+}
+
+.button1 {
+  color: white;
+  background-color: rgb(71, 3, 8);
+  border: none;
+  position: absolute;
+  top: 600px; left: 1250px; 
+  font-size: 30px;
+  border-radius: 20px;
+  padding: 32px 16px;
+}
+
+.button1:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 250, 250, 0.164), 0 17px 50px 0 rgba(255, 253, 253, 0.137);
+}
+
+.button2 {
+  color: white;
+  background-color: rgb(71, 3, 8);
+  border: none;
+  position: absolute;
+  top: 600px; left: 250px; 
+  font-size: 30px;
+  border-radius: 20px;
+  padding: 32px 16px;
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 250, 250, 0.164), 0 17px 50px 0 rgba(255, 253, 253, 0.137);
+}
+
+.button3 {
+  color: white;
+  background-color: rgb(71, 3, 8);
+  border: none;
+  position: absolute;
+  top: 300px; left: 150px; 
+  font-size: 30px;
+  border-radius: 20px;
+  padding: 32px 16px;
+}
+
+.button3:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 250, 250, 0.164), 0 17px 50px 0 rgba(255, 253, 253, 0.137);
+}
+
+.button4 {
+  color: white;
+  background-color: rgb(71, 3, 8);
+  border: none;
+  position: absolute;
+  top: 500px; left: 750px; 
+  font-size: 30px;
+  border-radius: 20px;
+  padding: 32px 16px;
+}
+
+.button4:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 250, 250, 0.164), 0 17px 50px 0 rgba(255, 253, 253, 0.137);
+}
+
+.button5 {
+  color: white;
+  background-color: rgb(71, 3, 8);
+  border: none;
+  position: absolute;
+  top: 50px; left: 900px; 
+  font-size: 30px;
+  border-radius: 20px;
+  padding: 32px 16px;
+}
+
+.button5:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 250, 250, 0.164), 0 17px 50px 0 rgba(255, 253, 253, 0.137);
+}
+
+.button6 {
+  color: white;
+  background-color: rgb(71, 3, 8);
+  border: none;
+  position: absolute;
+  top: 300px; left: 1500px; 
+  font-size: 30px;
+  border-radius: 20px;
+  padding: 32px 16px;
+}
+
+.button6:hover {
+  box-shadow: 0 12px 16px 0 rgba(21, 125, 223, 0.24), 0 17px 50px 0 rgba(17, 151, 212, 0.19);
+}
+
+.Image {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.Name {
+  font-size: 30px;
+}
+
+.CharactersList {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  float: left;
+  text-align: center;
+  margin-left: 15px;
+  padding: 10px 10px;
+  background-color: blue;
+}
+
+.Logout {
+  float: right;
+  margin-right: 15px;
+}
+
+.buttonLogout {
+  color: rgb(255, 255, 255);
+  background-color: blue;
+  font-size: 20px;
+  padding: 5px 5px;
+}
+
+.buttonLogout:hover {
+background-color: rgb(70, 96, 247);
+}
+
+.Login {
+  text-align: center;
+}
+
+.CreateAcc {
+  text-align: center;
+}
+
+.buttonRecruit {
+  color: white;
+  background-color: blue;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.buttonRecruit:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.Login {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  padding: 10px 10px;
+  background-color: blue;
+  max-width: fit-content;
+  position: absolute;
+  top: 30%; left: 45%; 
+}
+
+.LoginButton {
+  color: white;
+  background-color: blue;
+  border: none;
+  font-size: 20px;
+  padding-top: 15px;
+}
+
+.AccountMake {
+  color: white;
+  background-color: blue;
+  border: none;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.Title {
+  color: orangered;
+  text-align: center;
+  font-size: 80px;
+  font-style: oblique;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.error {
+  color: white;
+}
+
+.Ghost {
+  position: absolute;
+  top: 30%; left: 58%;
+  max-height: 300px; 
+  max-width: 300px;
+}
+
+.Ghost1 {
+  position: absolute;
+  top: 30%; left: 30%; 
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  max-height: 300px;
+  max-width: 300px;
 }

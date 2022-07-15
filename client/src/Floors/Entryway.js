@@ -1,51 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logout from "../Logout";
+import CharacterCard from "../CharacterCard";
 
-function Entryway({ setUser, user, character, setSelectedChar }) {
-
-    // function setCharacter() {
-        // setSelectedChar(target)
-    // }
+function Entryway({ setUser, user, character, filterSelect, handleCharacter }) {
 
 
     function onLogout () {
         setUser(null)
     }
 
-    character[0].dead = true;
-    setSelectedChar = character[1]
-
-    console.log(character)
-
     const filterChar = character.filter(character => character.user_id === user.id)
 
-    const characterArray = filterChar.map((data) => {
-        return (
-            <div key={data.id} >
-                <h1 className="Name" >
-                    <img className="Image" src={data.picture} />
-                    -{data.name}
-                </h1 >
-            </div>
-        )
-    })
-
-
     return(
-            <div>
+            <div className="FullStory">
                 <div className="CharactersList">
-                    <NavLink to="/CreateCharacter"><button className="buttonRecruit" >Recruit Extra</button></NavLink>
+                    <Link to="/CreateCharacter"><button className="buttonRecruit" >Recruit Extra</button></Link>
                     <h1>Characters:</h1>
-                    <h1>{characterArray}</h1>
+                    {filterChar.map((char) => (
+                        <CharacterCard key={char.id} char={char} handleCharacter={handleCharacter}/>
+                    )) }
                 </div>
                 <div className="Logout" >
                     <Logout onLogout={onLogout} />
                 </div>
                 <h1 className="story" >Welcome {user.username}, do you dare enter?</h1>
                 <h1 className="story" >Select an adventurer and go forth</h1>
-                {setSelectedChar.dead ? <NavLink to="/Deadend"><button className="button" >Enter</button></NavLink> : <NavLink to="/RoomOne"><button className="button" >Enter</button></NavLink> }
-                {/* {user ? <Entryway setUser={setUser} user={user} character={character} setSelectedChar={setSelectedChar} /> : <CreateAcc setCurrentUser={setUser} /> } */}
+                {filterSelect[0] ? <h1 className="Picked" >You Have Selected {filterSelect[0].name} to enter</h1> : null }
+                {filterSelect[0] ? <Link to="/Doorway"><button className="button" >Enter</button></Link> : null }
             </div>
     )
 }

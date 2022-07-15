@@ -26,8 +26,6 @@ code {
   color: white;
   background-color: rgb(71, 3, 8);
   border: none;
-  position: absolute;
-  top: 550px; left: 900px; 
   font-size: 40px;
   border-radius: 20%;
   padding: 32px 16px;
@@ -239,4 +237,12 @@ background-color: rgb(70, 96, 247);
   transform: scaleX(-1);
   max-height: 300px;
   max-width: 300px;
+}
+
+.FullStory {
+  text-align: center;
+}
+
+.Picked {
+  padding-bottom: 40px;
 }

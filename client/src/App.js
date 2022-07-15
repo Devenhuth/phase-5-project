@@ -21,13 +21,22 @@ import Hallwayss from "./Floors/Hallwayss";
 import HallWaysss from "./Floors/HallWaysss";
 import Escape from "./Floors/Escape";
 import CreateCharacter from "./CreateCharacter";
+import Doorway from "./Floors/Doorway";
+import Win from "./Floors/Win";
+import SoundAlarm from "./Floors/SoundAlarm";
+import WideAwake from "./Floors/WideAwake";
+import EvilWin from "./Floors/EvilWin";
+import Forever from "./Floors/Forever";
+import UndergroundHall from "./Floors/UndergroundHall";
+import Heatstrock from "./Floors/Heatstrock";
+import WaterRun from "./Floors/WaterRun";
 
 
 function App() {
-  const [count, setCount] = useState(0);
   const [user, setUser] = useState(null);
   const [character, setCharacter] = useState([]);
   const [selectedChar, setSelectedChar] = useState([]);
+  const [filterSelect, setFilterSelect] = useState({});
 
   useEffect(() => {
     fetch('/characters')
@@ -40,10 +49,26 @@ function App() {
     });
   }, []);
 
-  const addNewCharacter = (newCharacter) => {
+const addNewCharacter = (newCharacter) => {
     setCharacter([...character, newCharacter])
   }
 
+
+function handleCharacter(char) {
+    setSelectedChar(char.target.src)
+    setFilterSelect(character.filter(character => character.picture === selectedChar))
+}
+
+function handleUpdateCharacter(updatedChar) {
+  const updatedCharacter = character.map(character => {
+    if (character.id === updatedChar.id) {
+      return updatedChar;
+    } else {
+      return character
+    }
+  });
+  setCharacter(updatedCharacter)
+}
 
   return (
     <div>
@@ -51,13 +76,13 @@ function App() {
       <div className="App">
         <Switch>
           <Route  exact path="/">
-            {user ? <Entryway setUser={setUser} user={user} character={character} setSelectedChar={setSelectedChar} /> : <Login onLogin={setUser}/> }
+            {user ? <Entryway setUser={setUser} user={user} character={character} filterSelect={filterSelect} handleCharacter={handleCharacter} /> : <Login onLogin={setUser}/> }
           </Route>
           <Route exact path="/CreateAcc">
-            {user ? <Entryway setUser={setUser} user={user} character={character} setSelectedChar={setSelectedChar} /> : <CreateAcc setCurrentUser={setUser} /> }
+            {user ? <Entryway setUser={setUser} user={user} character={character} filterSelect={filterSelect} handleCharacter={handleCharacter} /> : <CreateAcc setCurrentUser={setUser} /> }
           </Route>
           <Route exact path="/Entryway">
-            <Entryway setUser={setUser} user={user} character={character} setSelectedChar={setSelectedChar} />
+            <Entryway setUser={setUser} user={user} character={character}  filterSelect={filterSelect} handleCharacter={handleCharacter} />
           </Route>
           <Route exact path="/RoomOne">
             <RoomOne />
@@ -65,17 +90,41 @@ function App() {
           <Route exact path="/RoomTwo">
             <RoomTwo />
           </Route>
+          <Route exact path="/WideAwake">
+            <WideAwake />
+          </Route>
           <Route exact path="/Basement">
             <Basement />
           </Route>
           <Route exact path="/UndergroundArea">
             <UndergroundArea />
           </Route>
+          <Route exact path="/EvilWin">
+            <EvilWin />
+          </Route>
           <Route exact path="/Hallway">
             <Hallway />
           </Route>
+          <Route exact path="/WaterRun">
+            <WaterRun />
+          </Route>
+          <Route exact path="/UndergroundHall">
+            <UndergroundHall />
+          </Route>
+          <Route exact path="/Heatstrock">
+            <Heatstrock />
+          </Route>
+          <Route exact path="/Forever">
+            <Forever />
+          </Route>
           <Route exact path="/Underwater">
             <Underwater />
+          </Route>
+          <Route exact path="/Doorway">
+            <Doorway filterSelect={filterSelect} />
+          </Route>
+          <Route exact path="/SoundAlarm">
+            <SoundAlarm />
           </Route>
           <Route exact path="/ByWaterSource">
             <ByWaterSource />
@@ -90,7 +139,7 @@ function App() {
             <MusicPlayer />
           </Route>
           <Route exact path="/Deadend">
-            <Deadend selectedChar={selectedChar} />
+            <Deadend filterSelect={filterSelect} setFilterSelect={setFilterSelect} handleUpdateCharacter={handleUpdateCharacter}/>
           </Route>
           <Route exact path="/UnderwaterLoot">
             <UnderwaterLoot />
@@ -109,6 +158,9 @@ function App() {
           </Route>
           <Route exact path="/Escape">
             <Escape />
+          </Route>
+          <Route exact path="/Win">
+            <Win filterSelect={filterSelect}/>
           </Route>
           <Route>
             <CreateCharacter user={user} addNewCharacter={addNewCharacter} />

@@ -10,6 +10,12 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
         render json: item
     end
 
+    def update
+        item = find_item
+        item.update!(character_id: params[:character_id])
+        render json:item
+    end
+
 private
 
     def find_item

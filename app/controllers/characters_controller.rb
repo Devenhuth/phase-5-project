@@ -16,6 +16,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable
         render json: character, status: :created
     end
 
+    def update
+        character = find_character
+        character.update!(dead: params[:dead])
+        render json:character
+    end
+
 private
 
     def find_character
